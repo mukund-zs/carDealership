@@ -18,13 +18,13 @@ func dbConn() (db *sql.DB) {
 	}
 	return db
 }
+
 func main() {
 	r := mux.NewRouter()
-	var err error
 	r.HandleFunc("/", carHandler)
 	r.HandleFunc("/{id}", runById).Methods(http.MethodGet, http.MethodPut, http.MethodDelete)
-	err1 := http.ListenAndServe(":8000", nil)
-	if err != nil {
+	err1 := http.ListenAndServe(":8000", r)
+	if err1 != nil {
 		log.Fatal(err1)
 	}
 }

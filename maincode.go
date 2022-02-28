@@ -11,16 +11,6 @@ import (
 	"time"
 )
 
-//type database struct {
-//	db *sql.DB
-//}
-//
-//func databaseHandler(d *sql.DB) *database {
-//	return &database{
-//		db: d,
-//	}
-//}
-
 func carHandler(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodPost {
 		y, _ := ioutil.ReadAll(req.Body)

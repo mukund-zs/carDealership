@@ -17,7 +17,8 @@ import (
 func TestCarPost(t *testing.T) {
 	db, _ = sql.Open("mysql", "root:root@123@tcp(localhost:3306)/cardealership")
 
-	const UUID = "246cb94d-2ce0-4394-9957-817a71e67f0a"
+	const UUID = "87184816-3d9b-4a39-94b1-55b320e0ef41" //for duplicate id case
+
 	carInput := car{"", "Ferrari11", 2019, "Ferrari", "Petrol", enginetype{3, 5, 100}}
 	carInput2 := car{UUID, "model 1", 2019, "Tesla", "Diesel", enginetype{3, 4, 100}}
 	invalidBrand := car{"", "model 1", 2019, "dvsjc", "Diesel", enginetype{3, 4, 100}}
@@ -82,7 +83,7 @@ func TestCarDelete(t *testing.T) {
 }
 
 func TestCarPut(t *testing.T) {
-	const UUID = "1da6c99c-b4f9-419a-a209-c8d77f193f11"
+	const UUID = "87184816-3d9b-4a39-94b1-55b320e0ef41"
 	input1 := car{UUID, "model 1", 2019, "Tesla", "Diesel", enginetype{3, 4, 100}}
 	emptyCar := car{"", "", 0, "", "", enginetype{0, 0, 0}}
 	log.Println(emptyCar)
